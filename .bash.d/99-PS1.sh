@@ -25,7 +25,7 @@ _set_prompt () {
     }
 
     HOSTPS1="$blue\h$reset"
-    JOBSC=$(jobs | wc -l)
+    JOBSC=$(jobs | wc -l | awk '{print $1}')
     if [ "$JOBSC" != "0" ]; then
         HOSTPS1="$HOSTPS1$yellow%$JOBSC$reset"
     fi
