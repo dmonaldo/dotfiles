@@ -18,3 +18,9 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.wo.number = true
 
 require("lazy").setup('plugins')
+
+-- set color scheme
+vim.cmd([[
+	colorscheme rose-pine
+]])
+
