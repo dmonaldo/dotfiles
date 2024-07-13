@@ -1,3 +1,15 @@
+-- source env vars
+local function source_vim_file(file)
+    local expanded_file = vim.fn.expand(file)
+    if vim.fn.filereadable(expanded_file) == 1 then
+        vim.cmd('source ' .. expanded_file)
+    else
+        print("File not found: " .. expanded_file)
+    end
+end
+-- source the .nvim.env file
+source_vim_file('~/.nvim.env')
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -23,4 +35,3 @@ require("lazy").setup('plugins')
 vim.cmd([[
 	colorscheme rose-pine
 ]])
-

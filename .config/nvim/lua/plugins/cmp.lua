@@ -9,6 +9,7 @@ return {
     -- completion stuff
     'hrsh7th/nvim-cmp',
     dependencies = {
+        -- 'zbirenbaum/copilot-cmp',
         'hrsh7th/cmp-nvim-lsp',
         'hrsh7th/cmp-buffer',
         'hrsh7th/cmp-path',
@@ -92,7 +93,8 @@ return {
 
             },
             sources = cmp.config.sources({
-                { name = "nvim_lsp" },
+                { name = "copilot", group_index = 2 },
+                { name = "nvim_lsp", group_index = 2 },
                 { name = "luasnip", keyword_length = 7 },
                 { name = "nvim_lua" },
                 { name = 'nvim_lsp_document_symbol' },
