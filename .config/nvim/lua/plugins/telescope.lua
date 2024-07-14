@@ -18,6 +18,11 @@ return {
 					hijack_netrw = true,
 				},
 			},
+            pickers = {
+                find_files = {
+                    find_command = {'rg', '--files', '--hidden', '-g', '!.git', '-g', '!__pycache__', '-g', '!*.egg-info'},
+                },
+            },
 			mappings = {
 				i = {
 					["<C-n>"] = actions.cycle_history_next,
