@@ -35,3 +35,6 @@ require("lazy").setup('plugins')
 vim.cmd([[
 	colorscheme rose-pine
 ]])
+
+-- load avante
+require('avante_lib').load()
