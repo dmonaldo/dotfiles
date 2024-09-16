@@ -3,7 +3,17 @@ return {
 	config = function()
 		-- Setup language servers.
 		local lspconfig = require('lspconfig')
-        lspconfig.pylsp.setup {}
+        lspconfig.pylsp.setup {
+            settings = {
+                pylsp = {
+                    plugins = {
+                        -- TODO: replace with ruff once go-to-definition is supported
+                        flake8 = { enabled = true },
+                        pycodestyle = { enabled = false },
+                    }
+                }
+            }
+        }
 		lspconfig.tsserver.setup {}
 		lspconfig.rust_analyzer.setup {
 		  -- Server-specific settings. See `:help lspconfig-setup`
