@@ -31,6 +31,9 @@ vim.wo.number = true
 
 require("lazy").setup('plugins')
 
+-- rename
+vim.keymap.set('n', '<leader>vrn', vim.lsp.buf.rename, { desc = "[R]e[N]ame" })
+
 -- set color scheme
 vim.cmd([[
 	colorscheme rose-pine
