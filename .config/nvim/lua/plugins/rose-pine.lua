@@ -1,8 +1,7 @@
 return {
-	'rose-pine/neovim',
-	config = function()
-		local rose = require('rose-pine')
-		rose.setup()
-	end
+  "rose-pine/neovim",
+  config = function()
+    local rose = require("rose-pine")
+    rose.setup()
+  end,
 }
-

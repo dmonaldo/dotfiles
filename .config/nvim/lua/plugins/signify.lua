@@ -1,3 +1,3 @@
 return {
-	'mhinz/vim-signify'
+  "mhinz/vim-signify",
 }

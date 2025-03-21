@@ -2,12 +2,12 @@
 
 -- Auto-refresh signify when saving a file
 vim.api.nvim_create_autocmd("BufWritePost", {
-    pattern = "*",
-    command = "SignifyRefresh"
+  pattern = "*",
+  command = "SignifyRefresh",
 })
 
 -- Auto-refresh signify periodically during editing
 vim.api.nvim_create_autocmd("CursorHold", {
-    pattern = "*",
-    command = "SignifyRefresh"
+  pattern = "*",
+  command = "SignifyRefresh",
 })
