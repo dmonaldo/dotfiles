@@ -41,3 +41,10 @@ vim.cmd([[
 
 -- load avante
 require("avante_lib").load()
+
+-- copy file path
+vim.keymap.set('n', '<leader>cp', function()
+  local filepath = vim.fn.expand('%')
+  vim.fn.setreg('+', filepath)
+  print('Copied: ' .. filepath)
+end, { desc = 'Copy full file path to clipboard' })

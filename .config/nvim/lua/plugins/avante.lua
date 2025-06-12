@@ -2,9 +2,17 @@ return {
   "yetone/avante.nvim",
   event = "VeryLazy",
   lazy = true,
-  version = false, -- set this if you want to always pull the latest change
+  version = true, -- set this if you want to always pull the latest change
   opts = {
     debug = false,
+    -- claude = {
+    --   endpoint = "https://api.anthropic.com",
+    --   model = "claude-3-7-sonnet-20250219",
+    --   timeout = 30000, -- Timeout in milliseconds
+    --   temperature = 0,
+    --   max_tokens = 4096,
+    --   disable_tools = false,
+    -- },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = "make",
