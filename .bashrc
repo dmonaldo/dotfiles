@@ -42,3 +42,4 @@ alias pip="pip3"
 for file in ~/.bash.d/*; do source $file; done
 
 source ~/.bash.env
+export PATH="$HOME/.local/bin:$PATH"
