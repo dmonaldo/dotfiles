@@ -42,8 +42,5 @@ alias pip="pip3"
 for file in ~/.bash.d/*; do source $file; done
 
 source ~/.bash.env
-<<<<<<< Updated upstream
-export PATH="$HOME/.local/bin:$PATH"
-=======
 
->>>>>>> Stashed changes
+export PATH="$HOME/.local/bin:$PATH"
