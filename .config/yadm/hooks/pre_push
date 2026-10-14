@@ -1,0 +1,15 @@
+#!/bin/bash
+# Block yadm pushes whose unpushed commits contain a secret. The dotfiles repo is public.
+# Bypass a false positive with: GITLEAKS_SKIP=1 yadm push
+
+[ -n "$GITLEAKS_SKIP" ] && exit 0
+if ! command -v gitleaks >/dev/null 2>&1; then
+  echo "yadm: gitleaks not installed (brew install gitleaks); refusing to push unscanned" >&2
+  exit 1
+fi
+
+export GIT_DIR="$YADM_HOOK_REPO" GIT_WORK_TREE="$YADM_HOOK_WORK"
+gitleaks git --log-opts="@{upstream}..HEAD" --no-banner --redact -v --log-level warn "$YADM_HOOK_WORK" || {
+  echo "yadm: push blocked, gitleaks found a possible secret (shown redacted above)" >&2
+  exit 1
+}
