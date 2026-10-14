@@ -8,6 +8,8 @@ path=(
   $HOME/.local/bin
   $HOME/.opencode/bin
   $HOME/Library/pnpm
+  $HOME/.cargo/bin
+  /opt/homebrew/opt/rustup/bin
   /opt/homebrew/opt/postgresql@17/bin
   /opt/homebrew/opt/libpq/bin
   $path
