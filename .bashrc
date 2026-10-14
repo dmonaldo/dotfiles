@@ -2,6 +2,7 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # homebrew
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/opt:$PATH"
 
 # nvm
