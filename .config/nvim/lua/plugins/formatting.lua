@@ -43,6 +43,22 @@ return {
       stylua = {
         prepend_args = { "--indent-type", "spaces", "--indent-width", "2" },
       },
+      -- Run rubocop via `bundle exec` so it uses the version pinned in the
+      -- project's Gemfile.lock instead of the (incompatible) global gem.
+      rubocop = {
+        command = function(_, ctx)
+          if vim.fn.findfile("Gemfile", ctx.dirname .. ";") ~= "" then
+            return "bundle"
+          end
+          return "rubocop"
+        end,
+        prepend_args = function(_, ctx)
+          if vim.fn.findfile("Gemfile", ctx.dirname .. ";") ~= "" then
+            return { "exec", "rubocop" }
+          end
+          return {}
+        end,
+      },
     },
   },
   init = function()
