@@ -29,7 +29,7 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 vim.wo.number = true
 
-require("lazy").setup("plugins")
+require("lazy").setup("plugins", { rocks = { enabled = false } })
 
 -- rename
 vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, { desc = "[R]e[N]ame" })

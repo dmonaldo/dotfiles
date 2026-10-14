@@ -8,6 +8,7 @@
 return {
   -- completion stuff
   "hrsh7th/nvim-cmp",
+  event = "InsertEnter",
   dependencies = {
     -- 'zbirenbaum/copilot-cmp',
     "hrsh7th/cmp-nvim-lsp",
