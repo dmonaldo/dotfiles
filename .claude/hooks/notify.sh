@@ -1,14 +1,40 @@
 #!/bin/bash
-# Claude Code notification hook: macOS banner + terminal bell.
-# Reads the hook's JSON payload on stdin and tailors the banner to the event:
-#   Stop              -> "✅ Claude finished" + the start of Claude's last reply
-#   PermissionRequest -> "✋ Needs approval" + which tool and what it wants to touch
-# Clicking the banner focuses Ghostty and jumps to the session's tmux pane.
+# Claude Code notification hook: macOS banner + terminal bell + tmux window status.
+# Reads the hook's JSON payload on stdin and tailors the output to the event:
+#   UserPromptSubmit, PostToolUse -> ⏳ in the tmux window list (no banner)
+#   PermissionRequest             -> ✋ + "Needs approval" banner naming the tool
+#   Stop                          -> ✅ + "Claude finished" banner with the last reply
+#   SessionEnd                    -> clears the tmux window status
+# Clicking a banner focuses Ghostty and jumps to the session's tmux pane.
 
 input=$(cat)
 field() { jq -r "$1 // empty" <<<"$input" 2>/dev/null; }
 
 event=$(field '.hook_event_name')
+
+# Show Claude's state next to the window name (rendered by window-status-format).
+set_window_status() {
+  [ -n "$TMUX_PANE" ] || return
+  if [ -n "$1" ]; then
+    tmux set -w -t "$TMUX_PANE" @claude "$1" 2>/dev/null
+  else
+    tmux set -wu -t "$TMUX_PANE" @claude 2>/dev/null
+  fi
+}
+
+case "$event" in
+UserPromptSubmit | PostToolUse)
+  set_window_status "⏳"
+  exit 0
+  ;;
+SessionEnd)
+  set_window_status ""
+  exit 0
+  ;;
+PermissionRequest) set_window_status "✋" ;;
+*) set_window_status "✅" ;;
+esac
+
 cwd=$(field '.cwd')
 cwd="${cwd:-$PWD}"
 session_id=$(field '.session_id')
