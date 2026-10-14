@@ -20,9 +20,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # alias
 alias vim="nvim"
 alias v="nvim ."
-alias dcb="docker-compose build"
-alias dcr="docker-compose run --rm --service-ports"
-alias dcu="docker-compose up"
 alias python="python3"
 alias pip="pip3"
 
