@@ -10,7 +10,6 @@ return {
         "bash",
         "c",
         "lua",
-        "fennel",
         "javascript",
         "typescript",
         "python",

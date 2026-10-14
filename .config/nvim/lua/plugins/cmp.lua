@@ -13,7 +13,6 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
-    "hrsh7th/cmp-cmdline",
     --'mtoohey31/cmp-fish',
     "hrsh7th/cmp-nvim-lua",
     -- snippets with LuaSnip
@@ -92,13 +91,9 @@ return {
         { name = "nvim_lsp", group_index = 2 },
         { name = "luasnip", keyword_length = 7 },
         { name = "nvim_lua" },
-        { name = "nvim_lsp_document_symbol" },
-        { name = "nvim_lsp_signature_help" },
         { name = "path" },
         { name = "buffer", keyword_length = 7 },
-        { name = "cmp_nvim_r" },
         --{ name = "fish" },
-        { name = "conjure" },
       }),
       window = {
         completion = { border = "single" },

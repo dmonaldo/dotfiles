@@ -3,7 +3,6 @@ return {
   tag = "0.1.4",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "BurntSushi/ripgrep",
   },
   config = function()
     local actions = require("telescope.actions")

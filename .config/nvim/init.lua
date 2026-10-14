@@ -39,9 +39,6 @@ vim.cmd([[
   colorscheme rose-pine
 ]])
 
--- load avante
-require("avante_lib").load()
-
 -- copy file path
 vim.keymap.set('n', '<leader>cp', function()
   local filepath = vim.fn.expand('%')

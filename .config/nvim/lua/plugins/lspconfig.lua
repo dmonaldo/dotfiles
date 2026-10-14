@@ -1,9 +1,8 @@
 return {
   "neovim/nvim-lspconfig",
   config = function()
-    -- Setup language servers.
-    local lspconfig = require("lspconfig")
-    lspconfig.pylsp.setup({
+    -- Setup language servers. See `:help lspconfig-nvim-0.11`
+    vim.lsp.config("pylsp", {
       settings = {
         pylsp = {
           plugins = {
@@ -13,16 +12,15 @@ return {
         },
       },
     })
-    lspconfig.ts_ls.setup({})
-    lspconfig.rust_analyzer.setup({
-      -- Server-specific settings. See `:help lspconfig-setup`
+    vim.lsp.config("rust_analyzer", {
       settings = {
         ["rust-analyzer"] = {},
       },
     })
-    lspconfig.ruby_lsp.setup({
+    vim.lsp.config("ruby_lsp", {
       cmd = { "ruby-lsp" },
     })
+    vim.lsp.enable({ "pylsp", "ts_ls", "rust_analyzer", "ruby_lsp" })
 
     -- Global mappings.
     -- See `:help vim.diagnostic.*` for documentation on any of the below functions

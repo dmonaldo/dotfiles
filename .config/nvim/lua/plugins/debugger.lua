@@ -11,14 +11,6 @@ return {
           "nvim-neotest/nvim-nio",
         },
       },
-      -- Python adapter
-      "mfussenegger/nvim-dap-python",
-      -- JavaScript/TypeScript adapter
-      "microsoft/vscode-js-debug",
-      {
-        "mxsdev/nvim-dap-vscode-js",
-        dependencies = { "microsoft/vscode-js-debug" },
-      },
       -- Ruby adapter
       "suketa/nvim-dap-ruby",
       -- Virtual text for DAP
@@ -153,9 +145,6 @@ return {
         }
       }
 
-      -- Python adapter setup
-      -- require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
-
       -- Ruby adapter setup
       require("dap-ruby").setup()
 
@@ -177,52 +166,6 @@ return {
       -- -- Add custom handler for breakpoint verification failures
       -- dap.listeners.after.breakpointError["breakpoint_error"] = function(_, body)
       --   vim.notify("Breakpoint error: " .. vim.inspect(body), vim.log.levels.ERROR)
-      -- end
-
-      -- -- TypeScript/JavaScript adapter setup
-      -- require("dap-vscode-js").setup({
-      --   -- node_path = "node", -- Path to node executable
-      --   debugger_path = vim.fn.stdpath("data") .. "/lazy/vscode-js-debug",
-      --   adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' },
-      -- })
-
-      -- Configure TypeScript/React debugger
-      -- for _, language in ipairs({ "typescript", "javascript", "typescriptreact", "javascriptreact" }) do
-      --   dap.configurations[language] = {
-      --     -- Debug React web application
-      --     {
-      --       type = "pwa-chrome",
-      --       request = "launch",
-      --       name = "Launch Chrome against localhost",
-      --       url = "http://localhost:3000",
-      --       webRoot = "${workspaceFolder}",
-      --       userDataDir = "${workspaceFolder}/.vscode/chrome-debug-profile",
-      --     },
-      --     -- Attach to running Chrome debugger
-      --     {
-      --       type = "pwa-chrome",
-      --       request = "attach",
-      --       name = "Attach to Chrome",
-      --       port = 9222,
-      --       webRoot = "${workspaceFolder}",
-      --     },
-      --     -- Debug Node.js backend
-      --     {
-      --       type = "pwa-node",
-      --       request = "launch",
-      --       name = "Launch Node.js Program",
-      --       program = "${file}",
-      --       cwd = "${workspaceFolder}",
-      --       sourceMaps = true,
-      --     },
-      --     -- Attach to running Node process
-      --     {
-      --       type = "pwa-node",
-      --       request = "attach",
-      --       name = "Attach to Node Process",
-      --       processId = require("dap.utils").pick_process,
-      --     },
-      --   }
       -- end
     end,
   },
