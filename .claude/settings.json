@@ -14,7 +14,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "opus",
+  "model": "opus[1m]",
   "hooks": {
     "Stop": [
       {
@@ -72,7 +72,13 @@
     "code-review@claude-plugins-official": true,
     "ruby-lsp@claude-plugins-official": true,
     "figma@claude-plugins-official": true,
-    "vercel@claude-plugins-official": true
+    "vercel@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true,
+    "swift-lsp@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "typesafe@typesafe-ai": true
   },
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
@@ -113,5 +119,18 @@
       "**Org-specific CLIs**: None configured"
     ]
   },
-  "voiceEnabled": true
+  "voiceEnabled": true,
+  "extraKnownMarketplaces": {
+    "typesafe-ai": {
+      "source": {
+        "source": "github",
+        "repo": "typesafe-ai/skills"
+      }
+    }
+  },
+  "theme": "dark",
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
+  }
 }
