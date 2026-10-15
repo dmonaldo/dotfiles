@@ -5,10 +5,8 @@ export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/opt:$PATH"
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/Homebrew/opt/nvm/nvm.sh" ] && \. "/usr/local/Homebrew/opt/nvm/nvm.sh"
-[ -s "/usr/local/Homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/Homebrew/opt/nvm/etc/bash_completion.d/nvm"
+# node via fnm (see ~/.zprofile)
+command -v fnm >/dev/null && eval "$(fnm env --use-on-cd --log-level=error --version-file-strategy=recursive --shell bash 2>/dev/null)"
 
 export PATH=/usr/local/share/python:$PATH
 export PATH=/opt/homebrew/opt/libpq/bin:$PATH
